@@ -1,0 +1,115 @@
+languages:
+- zh-Hans
+- cmn-Hans
+- zh-CN
+messages:
+- key: |
+    Extract or update localized file
+
+    commands：
+    {{commands}}
+
+    flags：
+    {{flags}}
+  message:
+    msg: |
+      提取或更新 Go 源码中的本地化内容
+
+      子命令：
+      {{commands}}
+
+      参数：
+      {{flags}}
+- key: command %s not found
+  message:
+    msg: |
+      未找到子命令 %s
+- key: dest locale files
+  message:
+    msg: 需要更新的文件列表。如果多个文件则以逗号分隔。
+- key: extract locale
+  message:
+    msg: 提取本地化内容
+- key: |
+    extract usage
+
+    flags：
+    {{flags}}
+  message:
+    msg: |
+      从源文件中提取本地化信息
+
+      flags：
+      {{flags}}
+- key: file format
+  message:
+    msg: 输出文件的格式，目前支持 JSON 和 YAML
+- key: "gomsg: %s\\nbuild with: %s\\n"
+  message:
+    msg: "gomsg: %s\\nbuild with: %s\\n"
+- key: language
+  message:
+    msg: 语言
+- key: locale func
+  message:
+    msg: 源代码中用于输出本地化信息的函数
+- key: locale struct tag
+  message:
+    msg: 指定用于本地化的结构体标签名称
+- key: no src dir
+  message:
+    msg: 未指定源码目录
+- key: out dir
+  message:
+    msg: 输出目录
+- key: recursive dir
+  message:
+    msg: 递归访问子目录
+- key: show current help info
+  message:
+    msg: 显示当前帮助信息
+- key: show help
+  message:
+    msg: 显示帮助信息
+- key: show info log
+  message:
+    msg: 显示提示信息
+- key: show version
+  message:
+    msg: 显示版本号
+- key: skip sub module
+  message:
+    msg: 忽略子模块的内容
+- key: src locale file
+  message:
+    msg: 指定源文件
+- key: the dest file %s is dir
+  message:
+    msg: 指定的翻译文件 %s 是一个目录
+- key: unsupported marshal for %s
+  message:
+    msg: 不支持 %s 的序列化
+- key: unsupported unmarshal for %s
+  message:
+    msg: 不支持 %s 的反序列化
+- key: update locale file
+  message:
+    msg: 更新本地化的文件
+- key: update locale file
+  message:
+    msg: 更新本地化的文件
+- key: |
+    update locale file usage
+
+    flags:
+    {{flags}}
+  message:
+    msg: |
+      依据源文件依次更新指定的本地化文件
+
+      此操作将会把只存在于源文件中的翻译项添加至指定的目标文件中，
+      而只存在于目标文件中的翻译项将被删除，一般在通过 locale
+      提取完翻译项之后，可以调用此命令对所有的翻译内容进行一次更新。
+
+      可用选项:
+      {{flags}}

@@ -1,0 +1,105 @@
+languages:
+- und
+messages:
+- key: |
+    Extract or update localized file
+    
+    commands：
+    {{commands}}
+    
+    flags：
+    {{flags}}
+  message:
+    msg: |
+      Extract or update localized file
+      
+      commands：
+      {{commands}}
+      
+      flags：
+      {{flags}}
+- key: command %s not found
+  message:
+    msg: command %s not found
+- key: dest locale files
+  message:
+    msg: dest locale files
+- key: extract locale
+  message:
+    msg: extract locale
+- key: |
+    extract usage
+    
+    flags：
+    {{flags}}
+  message:
+    msg: |
+      extract usage
+      
+      flags：
+      {{flags}}
+- key: file format
+  message:
+    msg: file format
+- key: "gomsg: %s\\nbuild with: %s\\n"
+  message:
+    msg: "gomsg: %s\\nbuild with: %s\\n"
+- key: language
+  message:
+    msg: language
+- key: locale func
+  message:
+    msg: locale func
+- key: locale struct tag
+  message:
+    msg: locale struct tag
+- key: no src dir
+  message:
+    msg: no src dir
+- key: out dir
+  message:
+    msg: out dir
+- key: recursive dir
+  message:
+    msg: recursive dir
+- key: show current help info
+  message:
+    msg: show current help info
+- key: show help
+  message:
+    msg: show help
+- key: show info log
+  message:
+    msg: show info log
+- key: show version
+  message:
+    msg: show version
+- key: skip sub module
+  message:
+    msg: skip sub module
+- key: src locale file
+  message:
+    msg: src locale file
+- key: the dest file %s is dir
+  message:
+    msg: the dest file %s is dir
+- key: unsupported marshal for %s
+  message:
+    msg: unsupported marshal for %s
+- key: unsupported unmarshal for %s
+  message:
+    msg: unsupported unmarshal for %s
+- key: update locale file
+  message:
+    msg: update locale file
+- key: |
+    update locale file usage
+    
+    flags:
+    {{flags}}
+  message:
+    msg: |
+      update locale file usage
+      
+      flags:
+      {{flags}}
