@@ -16,10 +16,15 @@ import (
 	"runtime"
 	"runtime/debug"
 
+	"github.com/goccy/go-yaml"
 	"github.com/issue9/cmdopt"
 	"github.com/issue9/localeutil"
 	"github.com/issue9/logs/v7"
-	"golang.org/x/text/message"
+	"github.com/issue9/messages/serialize"
+	"golang.org/x/text/language"
+	"golang.org/x/text/message/catalog"
+
+	"github.com/caixw/gomsgs/locales"
 )
 
 const (
@@ -36,11 +41,10 @@ flags：
 )
 
 func main() {
-	tag, err := localeutil.DetectUserLanguageTag()
+	p, err := newPrinter(localeutil.DetectUserLanguage())
 	if err != nil {
 		panic(err)
 	}
-	p := message.NewPrinter(tag)
 
 	var opt *cmdopt.CmdOpt
 	opt = cmdopt.New(&cmdopt.Options{
@@ -93,4 +97,25 @@ func newLogs(p *localeutil.Printer, out io.Writer) *logs.Logs {
 		logs.WithCreated(logs.NanoLayout),
 		logs.WithLocale(p),
 	)
+}
+
+func newPrinter(lang string) (*localeutil.Printer, error) {
+	tag, err := language.Parse(lang)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	langs, err := serialize.LoadFSGlob(func(string) serialize.UnmarshalFunc { return yaml.Unmarshal }, "*.yaml", locales.Locales)
+	if err != nil {
+		return nil, err
+	}
+
+	b := catalog.NewBuilder(catalog.Fallback(tag))
+	for _, lang := range langs {
+		if err := lang.Catalog(b); err != nil {
+			return nil, err
+		}
+	}
+
+	return localeutil.NewPrinter(b, tag), nil
 }
